@@ -1,0 +1,13 @@
+{
+    "name": "NodeJSTemplating",
+    "version": "0.0.0",
+    "description": "NodeJSTemplating",
+    "main": "server.js",
+    "author": {
+        "name": "berts",
+        "email": ""
+    },
+    "devDependencies": {
+        "promise": "7.0.0"
+    }
+}
