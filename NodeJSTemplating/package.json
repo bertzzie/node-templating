@@ -8,6 +8,7 @@
         "email": ""
     },
     "devDependencies": {
-        "promise": "7.0.0"
+        "promise": "7.0.0",
+        "sanitize-html": "1.6.*"
     }
 }

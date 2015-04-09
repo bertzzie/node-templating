@@ -3,7 +3,8 @@
 
 server.AddRoute("GET", /^\/$/, function (params) {
     var that = this;
-    that.view.Render('./temp.html', { 'PageTitle': 'Template!', 'Content': 'Hello, World!' })
+    var content = 'Hello, world! <script type="text/javascript">alert("XSS!")</script>';
+    that.view.Render('./temp.html', { 'PageTitle': 'Template!', 'Content': content })
         .then(function (result) {
             that.response.writeHead(200, { 'Content-Type': 'text/html', 'Content-Length': result.length });
             that.response.write(result);

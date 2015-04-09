@@ -1,4 +1,5 @@
 ﻿var fs = require('fs'),
+    sanitizer = require('sanitize-html'),
     Promise = require('promise');
 
 var Template = function () {
@@ -28,7 +29,7 @@ var Template = function () {
 
             while (_match = _parseRE.exec(_result)) {
                 _tag = _match[0];
-                _tagValue = data[_match[1].trim()];
+                _tagValue = sanitizer(data[_match[1].trim()]);
                 _result = _result.replace(_tag, _tagValue);
             }
             
