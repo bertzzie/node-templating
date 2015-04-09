@@ -11,7 +11,7 @@ var Router = function () {
     RouterObject.Dispatch = function (method, url, request, response, view) {
         var len = _routes.length,
             i = 0, 
-            match, rMeth;
+            match, rMeth, obj;
         
         for (i = 0; i < len; i += 1) {
             match = url.match(_routes[i].pattern);
@@ -19,7 +19,8 @@ var Router = function () {
 
             if (match && rMeth) {
                 match.shift();
-                _routes[i].handler.apply({}, [request, response, view].concat(match));
+                obj = { 'request': request, 'response': response, 'view': view };
+                _routes[i].handler.apply(obj, match);
             }
         }
     };
