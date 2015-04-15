@@ -5,7 +5,6 @@
 var Template = function () {
     var TemplateObject = {},
         _parseRE = /{{([^}}]+)?}}/g,
-        _match,
         _ReadFile = function (path) {
             var _readFile = function (path, success, fail) {
                 fs.readFile(path, { 'encoding': 'utf8' }, function (err, data) {
@@ -21,7 +20,7 @@ var Template = function () {
        };
     
     TemplateObject.Render = function (template, data) {
-        var _tag, _tagValue, 
+        var _tag, _tagValue, _match,
             _result = '';
         
         return _ReadFile(template).then(function (templateContent) {
